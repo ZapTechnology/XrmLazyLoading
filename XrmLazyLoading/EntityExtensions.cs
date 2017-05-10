@@ -63,7 +63,7 @@ namespace XrmLazyLoading
             {
                 PrimaryEntityRole = primaryEntityRole
             };
-            return GetRelated(() => action(context, entity, relationship));
+            return action(context, entity, relationship);
         }
 
         private static T GetRelatedEntity<T>(OrganizationServiceContext context, Entity entity, Relationship relationship) where T : Entity
@@ -80,11 +80,6 @@ namespace XrmLazyLoading
                 entity.RelatedEntities.Remove(relationship);
             context.LoadProperty(entity, relationship);
             return entity.GetRelatedEntities<T>(relationship.SchemaName, relationship.PrimaryEntityRole) ?? new T[0];
-        }
-
-        private static T GetRelated<T>(Func<T> action)
-        {
-            return action();
         }
     }
 }

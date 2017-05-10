@@ -64,6 +64,7 @@
     </Compile>
     <Compile Include="EntityExtensions.cs" />
     <Compile Include="EntityWrapper.cs" />
+    <Compile Include="OrganizationServiceContextWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
